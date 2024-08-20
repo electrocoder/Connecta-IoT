@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax İletişim Formu</title>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jnicol/particleground/jquery.particleground.min.js"></script>
+
+    <!-- Stil Ayarları -->
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .parallax {
+            background-image: url('bg-14.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .dark-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Siyah katman eklenmesi */
+            z-index: 2;
+        }
+
+        #particle-ground {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 3; /* İçeriği en üste taşımak */
+            position: relative;
+            color: #f5f5f5;
+        }
+
+        .contact-form-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            color: #000;
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .contact-form-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-form-container .form-control {
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .hero-title-content {
+            text-align: center;
+            max-width: 600px;
+            margin-left: 30px;
+        }
+
+        .hero-title-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-title-content .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-title-content {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+
+            .hero-title-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-title-content .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .contact-form-container {
+                margin: 20px auto;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="parallax">
+        <div id="particle-ground"></div>
+        <div class="dark-overlay"></div> <!-- Siyah katman -->
+        <div class="content-wrapper">
+            <div class="contact-form-container">
+                <h2>İletişim Formu</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="name">İsim</label>
+                        <input type="text" class="form-control" id="name" placeholder="İsminizi girin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Email adresinizi girin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesaj</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Mesajınızı yazın" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Gönder</button>
+                </form>
+            </div>
+            <div class="hero-title-content">
+                <div class="hero-subtitle">Branding / Design / Development</div>
+                <h1 class="hero-title">MEŞE BİLİŞİM</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Paralaks ve Particleground JavaScript -->
+    <script>
+        $(document).ready(function(){
+            $('#particle-ground').particleground({
+                dotColor: '#efefef',
+                lineColor: '#efefef'
+            });
+        });
+    </script>
+
+</body>
+</html>
